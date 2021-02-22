@@ -1,0 +1,68 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<cstring>
+using namespace std;
+int string_to_number(char s[])
+{
+	int nr = 0;
+	for (int i = 0; i < strlen(s); i++)
+	{
+		int c;
+		if (s[i] == '0')
+			c = 0;
+		else
+		if (s[i] == '1')
+			c = 1;
+		else
+		if (s[i] == '2')
+			c = 2;
+		else
+		if (s[i] == '3')
+			c = 3;
+		else
+		if (s[i] == '4')
+			c = 4;
+		else
+		if (s[i] == '5')
+			c = 5;
+		else
+		if (s[i] == '6')
+			c = 6;
+		else
+		if (s[i] == '7')
+			c = 7;
+		else
+		if (s[i] == '8')
+			c = 8;
+		else
+		if (s[i] == '9')
+			c = 9;
+		nr = nr * 10 + c;
+	}
+	return nr;
+
+}
+int main()
+{
+	char s[101];
+	FILE* f;
+	f= fopen("in.txt", "r");
+	//fscanf(fptr, "%s", s);
+	//printf("%s \n", s);
+	int sum = 0,ok;
+	ok = fscanf(f, "%s", s);
+	while(ok!=EOF)
+	{
+		//f.get();
+		sum = sum + string_to_number(s);
+		ok = fscanf(f, "%s", s);
+	}
+	printf("%d\n", sum );
+	if (f != 0)
+	{
+		fclose(f);
+		f = 0;
+	}
+
+	return 0;
+}
