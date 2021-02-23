@@ -38,5 +38,5 @@ void NumberList::Print()
 		cout <<numbers[i] << " ";
 	}
 
-	std::cout << '\n';
+	cout<< '\n';
 }
