@@ -1,4 +1,8 @@
 #pragma once
+#include<cstdarg>
+#include<iostream>
+using namespace std;
+
 class Math
 {
 public:
@@ -19,8 +23,8 @@ public:
 
     static int Mul(double x, double y, double z);
 
-    static int Add(int count x, ...); // sums up a list of integers
+    static int Add(int count , ...); // sums up a list of integers
 
-    static char* Add(const char* x, const char* y)
+    static char* Add(const char* x, const char* y);
 };
 
