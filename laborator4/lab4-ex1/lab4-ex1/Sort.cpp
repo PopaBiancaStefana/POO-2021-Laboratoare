@@ -1,6 +1,6 @@
 #include "Sort.h"
 
-void Insert_lista(int x);
+void Sort::Insert_lista(int x)
 {
   
     ultim->data = x;
@@ -11,37 +11,46 @@ void Insert_lista(int x);
         prim = ultim;
     else
     {
-  
-        nod * nod_curent = prim;
+
+        nod* nod_curent = prim;
         while (nod_curent->next != NULL)
             nod_curent = nod_curent->next;
 
         nod_curent->next = ultim;
         ultim->prev = nod_curent;
+    }
 }
 
-Sort(int count, int min, int max);
+Sort::Sort(int count, int min, int max)
+{   
+    int random;
+    n = count;
+    srand((unsigned)time(0));
 
-Sort();
-
-Sort(int x[], int count);
-
-Sort();
-
-Sort();
-
-void InsertSort(bool ascendent = false)
-{
-    
-  
+    for (int i = 0; i < n; i++)
+    {
+        random = srand() % max + min;
+        Insert_lista(random);
+    }
 }
 
-void QuickSort(bool ascendent = false);
+//Sort();
 
-void BubbleSort(bool ascendent = false);
+Sort::Sort(int x[], int count);
 
-void Print();
+//Sort();
 
-int  GetElementsCount();
+//Sort();
 
-int  GetElementFromIndex(int index);
+// void Sort::InsertSort(bool ascendent = false);
+
+
+//void Sort::QuickSort(bool ascendent = false);
+
+//void Sort::BubbleSort(bool ascendent = false);
+
+void Sort::Print();
+
+int Sort::GetElementsCount();
+
+int Sort::GetElementFromIndex(int index);
