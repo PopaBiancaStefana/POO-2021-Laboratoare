@@ -20,11 +20,11 @@ public:
 
     Sort(int count, int min, int max);
 
-    Sort();
+    Sort(int m, int n, int o, int p);
 
     Sort(int x[], int count);
 
-   // Sort();
+   Sort(int nr, ...);
 
    // Sort();
 
@@ -41,5 +41,5 @@ public:
     int  GetElementFromIndex(int index);
 
     void Insert_lista(int x);
-
+    void Afis_lista();
 }

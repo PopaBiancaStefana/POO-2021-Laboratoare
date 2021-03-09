@@ -21,26 +21,68 @@ void Sort::Insert_lista(int x)
     }
 }
 
+void Sort::Afis_lista()
+{
+    nod* p = prim;
+    while (p != NULL)
+    {
+        std::cout << p->data << ' ';
+        p = p->next; 
+    }
+}
+
 Sort::Sort(int count, int min, int max)
 {   
-    int random;
+ 
     n = count;
     srand((unsigned)time(0));
-
-    for (int i = 0; i < n; i++)
+    int random = rand() % max;
+    while (random < min || random > max) // aleg random >=min si <=max
     {
-        random = srand() % max + min;
+        random = random + min;
+        random = random % max;
+    }
+
+    for (int i = 1; i < n; i++)
+    {
+        int random = rand() % max;
+        while (random < min || random > max) 
+        {
+            random = random + min;
+            random = random % max;
+        }
         Insert_lista(random);
     }
 }
 
-//Sort();
+Sort::Sort(int m, int n, int o, int p)
+{
+    Insert_lista(m);
+    Insert_lista(n);
+    Insert_lista(o);
+    Insert_lista(p);
+}
 
-Sort::Sort(int x[], int count);
+Sort::Sort(int x[], int count)
+{
+    for(int i=1;i<count;i++)
+        Insert_lista(x[i]);
+}
 
-//Sort();
+Sort::Sort(int nr, ...)
+{
+    va_list list;
 
-//Sort();
+    va_start(list, nr);
+
+    for (int i = 1; i < nr; i++)
+    {
+        Insert_lista(va_arg(list, int));
+    }
+    va_end(list);
+}
+
+Sort::Sort(const char* s);
 
 // void Sort::InsertSort(bool ascendent = false);
 
