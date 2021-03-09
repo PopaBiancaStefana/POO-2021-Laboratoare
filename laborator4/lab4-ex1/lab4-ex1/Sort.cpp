@@ -21,10 +21,10 @@ void Sort::Insert_lista(int x)
     }
 }
 
-void Sort::Afis_lista()
+void Sort::Print()
 {
     nod* p = prim;
-    while (p != NULL)
+    while (p != nullptr)
     {
         std::cout << p->data << ' ';
         p = p->next; 
@@ -82,7 +82,39 @@ Sort::Sort(int nr, ...)
     va_end(list);
 }
 
-Sort::Sort(const char* s);
+Sort::Sort(const char* s)
+{
+    int i = 0;
+    int a = 0;
+
+    bool FIRST = true;
+
+    while (s[i] != NULL)
+    {
+        if (s[i] == ',')
+        {
+            if (FIRST)
+            {
+                this->Initializez(a);
+                FIRST = false;
+            }
+            else
+            {
+                this->Adaug(a);
+            }
+
+            a = 0;
+        }
+        else
+        {
+            a = a * 10 + (sir[i] - '0');
+        }
+
+        i++;
+    }
+
+    this->Adaug(a);
+}
 
 // void Sort::InsertSort(bool ascendent = false);
 
@@ -91,8 +123,24 @@ Sort::Sort(const char* s);
 
 //void Sort::BubbleSort(bool ascendent = false);
 
-void Sort::Print();
 
-int Sort::GetElementsCount();
+int Sort::GetElementsCount()
+{
+    return n;
+}
 
-int Sort::GetElementFromIndex(int index);
+int Sort::GetElementFromIndex(int index)
+{
+    return (GetPointerFromIndex(index))->data;
+}
+
+nod* Sort::GetPointerFromIndex(int index)
+{
+    nod* p = prim;
+
+    for (int i = 0; i < index; i++)
+    {
+        p = p->next;
+    }
+    return p;
+}

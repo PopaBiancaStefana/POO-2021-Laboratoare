@@ -24,9 +24,9 @@ public:
 
     Sort(int x[], int count);
 
-   Sort(int nr, ...);
+     Sort(int nr, ...);
 
-   // Sort();
+     Sort(const char* sir);
 
     void InsertSort(bool ascendent = false);
 
@@ -40,6 +40,8 @@ public:
 
     int  GetElementFromIndex(int index);
 
+    nod* GetPointerFromIndex(int index);
+
     void Insert_lista(int x);
-    void Afis_lista();
+  
 }
