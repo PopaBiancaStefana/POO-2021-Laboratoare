@@ -87,22 +87,12 @@ Sort::Sort(const char* s)
     int i = 0;
     int a = 0;
 
-    bool FIRST = true;
 
     while (s[i] != NULL)
     {
         if (s[i] == ',')
         {
-            if (FIRST)
-            {
-                this->Initializez(a);
-                FIRST = false;
-            }
-            else
-            {
-                this->Adaug(a);
-            }
-
+            Insert_lista(a);
             a = 0;
         }
         else
@@ -113,15 +103,68 @@ Sort::Sort(const char* s)
         i++;
     }
 
-    this->Adaug(a);
+    Insert_lista(a);
 }
 
-// void Sort::InsertSort(bool ascendent = false);
+void Sort::InsertSort(bool ascendent = false)
+{
+    for (int i = 1; i <n; i++)
+    {
+        int key = this->GetPointerFromIndex(i)->data;
+        int j = i - 1;
+
+        if (ascendent)
+        {
+            while (j >= 0 && GetPointerFromIndex(j)->data > key)
+            {
+                GetPointerFromIndex(j + 1)->data = GetPointerFromIndex(j)->data;
+                j--;
+            }
+        }
+        else
+        {
+            while (j >= 0 && GetPointerFromIndex(j)->data < key)
+            {
+                GetPointerFromIndex(j + 1)->data = GetPointerFromIndex(j)->data;
+                j--;
+            }
+        }
+
+        GetPointerFromIndex(j + 1)->data = key;
+    }
+}
 
 
 //void Sort::QuickSort(bool ascendent = false);
 
-//void Sort::BubbleSort(bool ascendent = false);
+void Sort::BubbleSort(bool ascendent = false)
+{
+    bool OK = true;
+
+    while (OK == true)
+    {
+        OK = false;
+
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (ascendent)
+            {
+                if (GetPointerFromIndex(i)->data > GetPointerFromIndex(i + 1)->data)
+                {
+                    std::swap(GetPointerFromIndex(i)->data, GetPointerFromIndex(i + 1)->data);
+                    OK = true;
+                }
+            }
+            else
+            {
+                if (GetPointerFromIndex(i)->data < GetPointerFromIndex(i + 1)->data)
+                {
+                    std::swap(GetPointerFromIndex(i)->data, GetPointerFromIndex(i + 1)->data);
+                    OK = true;
+                }
+            }
+        }
+}
 
 
 int Sort::GetElementsCount()
