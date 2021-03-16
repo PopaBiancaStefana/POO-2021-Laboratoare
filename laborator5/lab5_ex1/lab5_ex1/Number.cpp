@@ -16,3 +16,7 @@ int Number::GetBase() // returns the current base
 	return baza;
 }
 
+int  Number::GetDigitsCount()
+{
+	cout << strlen(nr) << endl;
+}

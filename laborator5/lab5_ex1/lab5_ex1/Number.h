@@ -38,7 +38,7 @@ public:
 	void SwitchBase(int newBase); //convert sirul din cadrul clasei in noua baza
 
 	void Print(); 
-
+	 
 	int  GetDigitsCount(); // returns the number of digits for the current number, nr de caractere
 
 	int  GetBase(); // returns the current base
