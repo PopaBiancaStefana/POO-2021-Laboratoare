@@ -22,7 +22,7 @@ public:
 
 	void operator! ();
 
-	int operator[] (int k); 
+	char operator[] (int index); 
 
 	int operator< (const Number v);
 
@@ -30,7 +30,7 @@ public:
 
 	//int operator== (const Number* v);
 
-	void& operator-- ();   //prefix
+	void operator-- ();   //prefix
 
 	void operator-- (int);  //postfix
 

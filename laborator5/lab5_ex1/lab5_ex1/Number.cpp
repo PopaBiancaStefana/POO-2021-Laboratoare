@@ -6,9 +6,9 @@ Number::Number(const char* value, int base)
 	baza = base;
 }
 
-Number operator[] (int k)
+char Number::operator [](int index)
 {
-
+	return (nr)[index];
 }
 
 int Number:: operator< ( Number v)
@@ -19,7 +19,13 @@ int Number:: operator< ( Number v)
 		return 1;
 	return 0;
 }
+Number operator+ (Number v1, Number v2) 
+{
+	int a = toDeci(v1.nr, v2.baza);
+	int b = toDeci(v1.nr, v2.baza);
+	int s = a + b;
 
+}
 Number::Number (const Number & d)
 {
 	strcpy(nr, d.nr);
@@ -54,6 +60,29 @@ int Number::toDeci(const char* v, int base)
 		putere = putere * baza;
 	}
 	return num;
+}
+
+void Number::DecitoBase(int num, int base, char[] s)
+{
+	i = 0;
+	char s[]
+	while (num > 0)
+	{
+		s[i++] = reValoare(num % base);
+		num /= base;
+	}
+	s[i] = '\0';
+
+	//inverseaza sir
+	int len = strlen(s);
+	for (i = 0; i < len / 2; i++)
+	{
+		char temp = s[i];
+		s[i] = s[len - i - 1];
+		s[len - i - 1] = temp;
+	}
+
+
 }
 void Number::SwitchBase(int newBase)
 {
