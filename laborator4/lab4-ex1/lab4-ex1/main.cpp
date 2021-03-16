@@ -3,8 +3,8 @@
 int main()
 {
 	Sort d;
-	d.Insert_lista(4);
-	//d.Sort(5, 1, 20);
+	d.Sort(7,3,1,5);
+	d.BubbleSort(false);
 	d.Afis_lista();
 	return 0;
 }

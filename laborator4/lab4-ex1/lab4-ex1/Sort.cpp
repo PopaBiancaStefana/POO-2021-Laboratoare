@@ -135,7 +135,6 @@ void Sort::InsertSort(bool ascendent = false)
 }
 
 
-//void Sort::QuickSort(bool ascendent = false);
 
 void Sort::BubbleSort(bool ascendent = false)
 {
