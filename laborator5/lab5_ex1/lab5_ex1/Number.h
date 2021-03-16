@@ -6,8 +6,6 @@ using namespace std;
 class Number
 
 {
-
-	// add data members vector de char
 	char nr[256];
 	int baza;
 
@@ -39,8 +37,11 @@ public:
 
 	void Print(); 
 	 
-	int  GetDigitsCount(); // returns the number of digits for the current number, nr de caractere
+	int  GetDigitsCount(); 
 
-	int  GetBase(); // returns the current base
+	int  GetBase(); 
+
+	int valoare(char c);
+	char reValoare(int x);
 
 };
