@@ -11,6 +11,15 @@ Number operator[] (int k)
 
 }
 
+int Number:: operator< ( Number v)
+{
+	int a = toDeci(nr, baza);
+	int b = toDeci(v.nr, v.baza);
+	if (a < b)
+		return 1;
+	return 0;
+}
+
 Number::Number (const Number & d)
 {
 	strcpy(nr, d.nr);
@@ -33,6 +42,19 @@ char Number::reValoare(int x)
 		return (char)(x - 10 + 'A');
 }
 
+int Number::toDeci(const char* v, int base)
+{
+	int n = GetDigitsCount();
+
+	int num = 0, putere = 1, i;
+
+	for (i = n - 1; i >= 0; i--)
+	{
+		num = num + valoare(v[i]) * putere;
+		putere = putere * baza;
+	}
+	return num;
+}
 void Number::SwitchBase(int newBase)
 {
 	int n = GetDigitsCount();

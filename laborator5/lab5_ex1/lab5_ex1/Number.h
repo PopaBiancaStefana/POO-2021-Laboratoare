@@ -20,19 +20,19 @@ public:
 
 	//friend Number operator- (Number v1, Number v2);
 
-	Number operator! ();
+	void operator! ();
 
-	Number operator[] (int k); 
+	int operator[] (int k); 
 
-	Number operator< (Number v);
+	int operator< (const Number v);
 
-	//Number operator> (Number v);
+	//int operator> (const Number* v);
 
-	//Number operator== (Number v);
+	//int operator== (const Number* v);
 
-	Number& operator-- ();   //prefix
+	void& operator-- ();   //prefix
 
-	Number operator-- (int);  //postfix
+	void operator-- (int);  //postfix
 
 	
 
@@ -43,6 +43,8 @@ public:
 	int  GetDigitsCount(); 
 
 	int  GetBase(); 
+
+	int toDeci(const char* v, int base);
 
 	int valoare(char c);
 
