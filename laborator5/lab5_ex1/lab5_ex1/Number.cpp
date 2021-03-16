@@ -6,6 +6,17 @@ Number::Number(const char* value, int base)
 	baza = base;
 }
 
+Number operator[] (int k)
+{
+
+}
+
+Number::Number (const Number & d)
+{
+	strcpy(nr, d.nr);
+	baza = d.baza;
+}
+
 int Number::valoare(char c)
 {
 	if (c >= '0' && c <= '9')
