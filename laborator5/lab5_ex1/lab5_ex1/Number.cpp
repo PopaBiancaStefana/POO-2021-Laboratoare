@@ -13,18 +13,23 @@ char Number::operator [](int index)
 
 int Number:: operator< ( Number v)
 {
-	int a = toDeci(nr, baza);
-	int b = toDeci(v.nr, v.baza);
+	int a = toDeci(nr);
+	int b = toDeci(v.nr);
 	if (a < b)
 		return 1;
 	return 0;
 }
 Number operator+ (Number v1, Number v2) 
 {
-	int a = toDeci(v1.nr, v2.baza);
-	int b = toDeci(v1.nr, v2.baza);
+	int a = toDeci(v1);
+	int b = toDeci(v1);
 	int s = a + b;
-
+	int baz;
+	if (v1.baza > v2.baza)
+		baz = v1.baza;
+	else
+		baz = v2.baza;
+	DecitoBase(s, baz);
 }
 Number::Number (const Number & d)
 {
@@ -48,7 +53,7 @@ char Number::reValoare(int x)
 		return (char)(x - 10 + 'A');
 }
 
-int Number::toDeci(const char* v, int base)
+int Number::toDeci(const char* v)
 {
 	int n = GetDigitsCount();
 
@@ -62,10 +67,10 @@ int Number::toDeci(const char* v, int base)
 	return num;
 }
 
-void Number::DecitoBase(int num, int base, char[] s)
+void Number::DecitoBase(int num, int base )
 {
-	i = 0;
-	char s[]
+	int i = 0;
+	char s[];
 	while (num > 0)
 	{
 		s[i++] = reValoare(num % base);
@@ -81,9 +86,9 @@ void Number::DecitoBase(int num, int base, char[] s)
 		s[i] = s[len - i - 1];
 		s[len - i - 1] = temp;
 	}
-
-
+	cout << s;
 }
+
 void Number::SwitchBase(int newBase)
 {
 	int n = GetDigitsCount();

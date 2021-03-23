@@ -16,7 +16,7 @@ public:
 
 	Number(const Number & d); //copy
 
-	friend Number operator+ (Number v1, Number v2);
+	friend Number operator+ ( Number v1,  Number v2);
 
 	//friend Number operator- (Number v1, Number v2);
 
@@ -44,7 +44,9 @@ public:
 
 	int  GetBase(); 
 
-	int toDeci(const char* v, int base);
+	int toDeci(const char* v);
+
+	void DecitoBase(int num, int base);
 
 	int valoare(char c);
 
