@@ -54,13 +54,13 @@ public:
         do
         {
             ok = false;
-            for (int i = 0; i < size - 1; i++)
+            for (int i = 0; i < size ; i+=2)   //  i< size - 1 si i++
             {
-                    if (v[i] < v[i + 1])
-                    {
-                        T tmp = v[i];
-                        v[i] = v[i + 1];
-                        v[i + 1] = tmp;
+                if (v[i] < v[i + 1])  
+                {
+                    T tmp = v[i];
+                    v[i] = v[i + 2];   // v[i]=v[i+1]
+                    v[i + 1] = tmp;
                         ok = true;
                     }
             }
