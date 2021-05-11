@@ -19,8 +19,15 @@ int Number:: operator< ( Number v)
 		return 1;
 	return 0;
 }
+
+void  Number:: operator-- ()
+{
+
+}
+
 Number operator+ (Number v1, Number v2) 
 {
+	
 	int a = toDeci(v1);
 	int b = toDeci(v1);
 	int s = a + b;
@@ -29,7 +36,9 @@ Number operator+ (Number v1, Number v2)
 		baz = v1.baza;
 	else
 		baz = v2.baza;
-	DecitoBase(s, baz);
+	Number rezultat( DecitoBase(s, baz) , baz);
+	return (rezultat);
+	
 }
 Number::Number (const Number & d)
 {
@@ -67,10 +76,10 @@ int Number::toDeci(const char* v)
 	return num;
 }
 
-void Number::DecitoBase(int num, int base )
+char * Number::DecitoBase(int num, int base )
 {
 	int i = 0;
-	char s[];
+	char s[30];
 	while (num > 0)
 	{
 		s[i++] = reValoare(num % base);
@@ -86,7 +95,7 @@ void Number::DecitoBase(int num, int base )
 		s[i] = s[len - i - 1];
 		s[len - i - 1] = temp;
 	}
-	cout << s;
+	return s;
 }
 
 void Number::SwitchBase(int newBase)
@@ -94,16 +103,10 @@ void Number::SwitchBase(int newBase)
 	int n = GetDigitsCount();
 
 	//baza veche in 10
-	int num = 0, putere = 1, i;
-
-	for (i = n - 1; i >= 0; i--)
-	{
-		num = num + valoare(nr[i]) * putere;
-		putere = putere * baza;
-	}
+	int num= toDeci(nr);
 
 	//baza 10 in baza noua
-	i = 0;
+	int i = 0;
 	while (num> 0)
 	{
 		nr[i++] = reValoare(num % newBase);

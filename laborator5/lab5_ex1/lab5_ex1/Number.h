@@ -1,4 +1,4 @@
-#pragma once
+#pragma warning(disable:4996)
 #include<stdlib.h>
 #include<cstring>
 #include<iostream>
@@ -12,7 +12,7 @@ class Number
 public:
 
 	Number(const char* value, int base); //iau parametrul si il pun in membru,   where base is between 2 and 16
-	//~Number();  
+	//~Number();  deconstructor
 
 	Number(const Number & d); //copy
 
@@ -30,7 +30,7 @@ public:
 
 	//int operator== (const Number* v);
 
-	void operator-- ();   //prefix
+	void  operator-- ();   //prefix
 
 	void operator-- (int);  //postfix
 
@@ -44,9 +44,9 @@ public:
 
 	int  GetBase(); 
 
-	int toDeci(const char* v);
+	int toDeci(const char* v) const;
 
-	void DecitoBase(int num, int base);
+	char * DecitoBase(int num, int base) const;
 
 	int valoare(char c);
 
