@@ -3,6 +3,7 @@
 
 int main()
 {
+
     lista<int> v;
 
     v.push(5);
